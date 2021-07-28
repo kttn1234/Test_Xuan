@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import 'variable';
+@import 'reset';
+@import 'mixin/media-srceen';
+@import 'mixin/mixin';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+::placeholder {
+	color: $color-blue;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: $color-blue;
+}
+
+::-ms-input-placeholder { 
+	color: $color-blue;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	color: $color-blue;
+	@include pc {
+		line-height: 1.2;
+		font-size: 20px;
+	}
+	@include sp {
+		line-height: 1.2;
+		font-size: .12rem;
+	}
+}
+
+.inner{
+	margin:0 auto;
+	box-sizing: content-box;
+	@include pc {
+		max-width: $container__max;
+		padding: 0 15px;
+	}
+	@include sp {
+		padding: 0 .2rem;
+	}
+}
+@include pc {
+	.hidden-pc{
+		display: none;
+	}
+	.trans {
+		opacity: 1;
+		-moz-transition: opacity 0.26s ease;
+		-o-transition: opacity 0.26s ease;
+		-webkit-transition: opacity 0.26s ease;
+		transition: opacity 0.26s ease;
+	}
+	.trans:hover {
+		opacity: 0.8;
+	}
+
+}
+
+@include sp {
+	.hidden-sp{
+		display: none; 
+	}
+	html {
+		font-size: calc(100vw / 3.75)!important;
+	}
+}

@@ -1,0 +1,219 @@
+@import './../assets/scss/common';
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: $color-blue01;
+    background:rgba(255,255,255,.6);
+    z-index: 100;
+    @include pc-max-l {
+        padding: 16px 80px;
+    }
+    @include pc-min-max-l {
+        padding: 16px 15px;
+    }
+    @include tbl {
+        padding: 16px 15px;
+    }
+    @include sp {
+        padding: .14rem .2rem;
+    }
+}
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo-image {
+    img {
+        @include sp {
+            width: .97rem;
+        }
+        
+    }
+}
+.header__toggle {
+    top: 0;
+    right: 0;
+    z-index: 101;
+    cursor: pointer;
+    position: relative;
+    @include pc {
+        width: 40px;
+        height: 27px;
+    }
+    @include sp {
+        width: .24rem;
+        height: .17rem;
+    }
+}
+.header__toggle span {
+    display: block;
+    background: #3B3B3C;
+    transition: all 0.4s ease;
+    position: absolute;
+    left: 0;
+    margin: auto;
+    @include pc {
+        height: 5px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+    @include sp {
+        height: .03rem;
+        border-radius: .03rem;
+        -webkit-border-radius: .03rem;
+        -moz-border-radius: .03rem;
+        -ms-border-radius: .03rem;
+        -o-border-radius: .03rem;
+    }
+}
+.header__toggle span:nth-child(1),
+.header__toggle span:nth-child(3) {
+    @include pc {
+        width: 40px;
+    }
+    @include sp {
+        width: .24rem;
+    }
+    
+}
+.header__toggle span:nth-child(1) {
+    @include pc {
+        top: 0px;
+    }
+    @include sp {
+        top: 0px;
+    }
+    
+}
+.header__toggle span:nth-child(2) {
+    @include pc {
+        top: 10px;
+        width: 30px;
+    }
+    @include sp {
+        top: .09rem;
+        width: .18rem;
+    } 
+}
+.header__toggle span:nth-child(3) {
+    @include pc {
+        top: 20px;
+    }
+    @include sp {
+        top: .18rem;
+    } 
+}
+.header__toggle.is-active span:nth-child(1) {
+    transform: translateY(0.27rem) rotate(-21deg);
+    @include pc {
+        top: 18px;
+    }
+    @include sp {
+        top: 0.18rem;
+    }
+    
+}
+.header__toggle.is-active span:nth-child(2) {
+    transform: translateY(-0.22rem) rotate(21deg);
+    @include pc {
+        top: 68px;
+    }
+    @include sp {
+        top: 0.68rem;
+    }
+}
+.header__navigation {
+    display: none;  
+}
+.header__social {
+    position: fixed;
+    z-index: 101;
+    @include pc {
+        bottom: 10px;
+        right: 10px;
+    }
+    @include sp {
+        bottom: .1rem;
+        right: .28rem;
+    }
+    li {
+        & + li {
+            @include pc {
+                margin-top: -5px;
+            }
+            @include sp {
+                margin-top: -0.03rem;
+            }
+            
+        }
+    }
+    a {
+        
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline-block;
+        @include pc {
+            width: 40px;
+            height: 40px;
+        }
+        @include sp {
+            width: .3rem;
+            height: .3rem;
+        }
+        &:hover {
+            @include pc {
+                border: 4px solid $color-blue01;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
+            
+        }
+        
+    }
+}
+.header__icon-share {
+    background-image: url("./../assets/img/common/icon_share_off.svg");
+    
+    @include pc {
+        background-size: 50px auto;
+    }
+    @include sp {
+        background-size: .4rem auto;
+    }
+    &:hover {
+        background-image: url("./../assets/img/common/icon_share_on.svg");
+    }
+}
+.header__icon-mail {
+    background-image: url("./../assets/img/common/icon_mail_off.svg");
+    
+    @include pc {
+        background-size: 34px auto;
+    }
+    @include sp {
+        background-size: .25rem auto;
+    }
+    &:hover {
+        background-image: url("./../assets/img/common/icon_mail_on.svg");
+    }
+}
+.header__icon-customer {
+    background-image: url("./../assets/img/common/icon_customer_off.svg");
+    @include pc {
+        background-size: 34px auto;
+    }
+    @include sp {
+        background-size: .25rem auto;
+    }
+    &:hover {
+        background-image: url("./../assets/img/common/icon_customer_on.svg");
+    }
+}

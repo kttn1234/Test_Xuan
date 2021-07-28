@@ -1,0 +1,55 @@
+@import './../assets/scss/common';
+.dropdown{
+  color: $color-blue;
+  cursor: pointer;
+  @include pc {
+    width: 145px;
+    font-size: 15px;
+  }
+  &__content {
+    width: 100%;
+    @include pc {
+      
+    }
+  }
+  &__item {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    position: relative;
+    background: $color-white;
+    @include pc {
+      padding: 17px 5px;
+      border-radius: 3px;
+    }
+    @include tbl {
+      padding: 12px 5px;
+      border-radius: 2px;
+    }
+    &:after {
+      content: '';
+      background: url("./../assets/img/common/icon_select_02.svg") no-repeat;
+      background-size: 17px auto;
+      width: 17px;
+      height: 10px;
+      position: absolute;
+      right: 12px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+
+    }
+  }
+  &__items {
+    background: $color-white;
+    li {
+      padding: 10px;
+      @include pc {
+        border-top: 1px solid $color-blue02;
+      }
+    }
+  }
+  
+  
+}

@@ -1,0 +1,63 @@
+// breakpoint
+$pc: 768;
+$pc-max: 1024;
+$pc-max-l: 1460;
+$sp-s: 480;
+
+@mixin pc-max-l { //min 1200
+  @media screen and (min-width: ($pc-max-l+px)) {
+    @content;
+  }
+}
+@mixin pc-max { //min 1024
+  @media screen and (min-width: ($pc-max+px)) {
+    @content;
+  }
+}
+
+@mixin pc { //min 768
+  @media screen and (min-width: ($pc+px)) {
+    @content;
+  }
+}
+@mixin pc-min-max-l { //1024 ~ 1139
+  @media screen and (min-width: ($pc-max+px)) and (max-width: ($pc-max-l - 1)+px) {
+    @content;
+  }
+}
+
+@mixin tbl { //768 ~ 1023
+  @media screen and (min-width: ($pc+px)) and (max-width: ($pc-max - 1)+px) {
+    @content;
+  }
+}
+
+@mixin sp { // max 767
+  @media only screen and (max-width: (($pc - 1)+px)) {
+    @content;
+  }
+}
+
+@mixin sp-s { //480 ~ 767
+  @media screen and (min-width: ($sp-s+px)) and (max-width: (($pc - 1)+px)) {
+    @content;
+  }
+}
+
+@mixin sp-xs { // max 479
+  @media screen and (max-width: (($sp-s - 1)+px)) {
+    @content;
+  }
+}
+
+@mixin sp-xxs { // max 375
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin ie { // ie
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}

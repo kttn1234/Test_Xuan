@@ -1,0 +1,1432 @@
+@import "./../assets/scss/common";
+.main-title {
+  color: $color-blue;
+  font-weight: bold;
+  line-height: 1.2;
+  @include pc-max {
+    font-size: 45px;
+  }
+  @include tbl {
+    font-size: 38px;
+  }
+  @include sp {
+    font-size: .25rem;
+  }
+}
+
+.main-text {
+  
+  @include pc {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  @include sp {
+    font-size: .2rem;
+  }
+}
+.button-main {
+  background: $color-white;
+  color: $color-blue;
+  display: block;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include pc {
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    border: 1px solid $color-blue;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+  @include sp {
+    width: 1rem;
+    height: .3rem;
+    font-size: .1rem;
+    border: .01rem solid $color-blue;
+    border-radius: .03rem;
+    -webkit-border-radius: .03rem;
+    -moz-border-radius: .03rem;
+    -ms-border-radius: .03rem;
+    -o-border-radius: .03rem;
+  }
+}
+// form
+.input-style,
+.select-style select {
+  width: 100%;
+  color: $color-blue;
+  @include pc {
+    font-size: 12px;
+    border: 1px solid $color-blue;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    padding: 7px 10px;
+  }
+  @include sp {
+    font-size: .12rem;
+    border: .01rem solid $color-blue;
+    border-radius: .03rem;
+    -webkit-border-radius: .03rem;
+    -moz-border-radius: .03rem;
+    -ms-border-radius: .03rem;
+    -o-border-radius: .03rem;
+    padding: .07rem .1rem;
+  }
+}
+.input-search {
+  width: 100%;
+  background-image: url(../assets/img/common/icon_search.svg);
+  background-repeat: no-repeat;
+  color: $color-blue;
+  font-style: italic;
+  @include pc {
+    font-size: 15px;
+    border: 1px solid $color-blue;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    padding: 11px 10px;    
+    background-position: right 10px center;
+  }
+  @include sp {
+    font-size: .15rem;
+    border: .01rem solid $color-blue;
+    border-radius: .03rem;
+    -webkit-border-radius: .03rem;
+    -moz-border-radius: .03rem;
+    -ms-border-radius: .03rem;
+    -o-border-radius: .03rem;
+    padding: .11rem .1rem;    
+    background-position: right .06rem center;
+    background-size: .27rem auto;
+  }
+}
+.select-style {
+  position: relative;
+  &::after {
+    content: '';
+    background: url(../assets/img/common/icon_select.svg) no-repeat;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include pc {
+      width: 11px;
+      height: 7px;
+      right: 8px;
+    }
+    @include sp {
+      width: .11rem;
+      height: .07rem;
+      right: .08rem;
+    }
+    
+  }
+  select {
+    appearance: none;
+  }
+}
+.checkbox-style {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  @include pc {
+    font-size: 10px;
+    padding-left: 19px;
+  }
+  @include sp {
+    font-size: .1rem;
+    padding-left: .19rem;
+  }
+  & + & {
+    margin-top: 9px;
+  }
+}
+
+.checkbox-style input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 11px;
+  width: 11px;
+  background-color: #eee;
+  border: 1px solid;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-style input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-style .checkmark:after {
+  left: 3px;
+  top: 1px;
+  width: 3px;
+  height: 6px;
+  border: solid $color-blue;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+.slider-button {
+  position: relative;
+  text-align: center;
+  @include pc {
+    width: 211px;
+    margin: auto;
+    padding: 8.5px 0;
+  }
+  @include sp {
+    width: 1.5rem;
+    margin: .31rem auto .33rem;
+    padding: .08rem 0;
+  }
+  
+  &__arrow {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: url("./../assets/img/common/icon_arrow_on.svg");
+    background-repeat: no-repeat;
+    @include pc {
+      width: 48px;
+      height: 40px;
+      background-size: 48px auto;
+    }
+    @include sp {
+      width: .35rem;
+      height: .29rem;
+      background-size: .35rem auto;
+    }
+    &:hover {
+      opacity: .7;
+    }
+    &:disabled {
+      background: url("./../assets/img/common/icon_arrow_off.svg");
+      background-repeat: no-repeat;
+      
+      pointer-events: none;
+      @include pc {
+        background-size: 48px auto;
+      }
+      @include sp {
+        background-size: .35rem auto;
+      }
+    }
+    &--prev {
+      left: 0;
+    }
+    &--next {
+      right: 0;
+      transform: rotate(180deg);
+    }
+  }
+  &__number {
+    @include pc {
+      font-size: 20px;
+    }
+    
+  }
+  &__current {
+    font-weight: bold;
+  }
+}
+.slider-button-more {
+  @include sp {
+    position: relative;
+    z-index: 3;
+    padding-bottom: .15rem;
+  }
+  .button-main {
+    height: 48px;
+    width: 160px;
+    font-size: 15px;
+  }
+}
+// banner
+.banner {
+  background: $color-blue;
+  @include pc-max {
+    padding-top: 388px;
+  }
+  @include tbl {
+    padding-top: 120px;
+  }
+  @include sp {
+    padding-top: 1.8rem;
+  }
+  &__content {
+    position: relative;
+    @include pc {
+      padding-bottom: 144px;
+    }
+    @include sp {
+      padding-bottom: 2.6rem;
+    }
+  }
+  .main-title {
+    color: $color-white;
+    @include sp {
+      font-size: .45rem;
+      margin-bottom: .08rem;
+      padding-left: .18rem;
+    }
+  }
+  &__image {
+    text-align: center;
+    @include pc {
+      padding-bottom: 17%;
+    }
+    @include sp {
+      padding-bottom: 1.58rem;
+    }
+    @include sp {
+      img {
+        width: 1.54rem;
+      }
+    }
+  }
+  &__description {
+    color: $color-white;
+    @include pc {
+      max-width: 595px;
+    }
+    @include sp {
+      line-height: 1.167;
+      padding-left: .22rem;
+    }
+  }
+  &__rating {
+    
+    color: $color-white;
+    @include pc {
+      margin-top: -3px;
+      margin-bottom: 34px;
+    }
+    @include sp {
+      margin-bottom: .19rem;
+      padding-left: .22rem;
+    }
+  }
+  &__rating-title {
+    
+    position: relative;
+    margin-right: 15px;
+    line-height: 1.18;
+    @include pc {
+      font-size: 11px;
+    }
+    @include sp {
+      font-size: .11rem;
+    }
+    &::before {
+      content: "";
+      display: inline-block;
+      background: $color-white;
+      position: absolute;
+      margin: auto;
+      @include pc {
+        width: 1px;
+        height: 10px;
+        right: -6px;
+        top: 1px;
+      }
+      @include sp {
+        width: .01rem;
+        height: .1rem;
+        right: -0.06rem;
+        top: .01rem;
+      }
+    }
+  }
+  &__rating-icon {
+    @include sp {
+      width: .68rem;
+    }
+    
+  }
+  &__store {
+    background: $color-blue01;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    @include pc {
+      padding-top: 17px;
+      padding-bottom: 17px;
+    }
+    @include sp {
+      padding-top: .25rem;
+      padding-bottom: .16rem;
+    }
+    .inner {
+      @include pc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    &-title {
+      font-weight: bold;
+      @include pc {
+        font-size: 20px;
+      }
+      @include sp {
+        text-align: center;
+        font-size: .25rem;
+        margin-bottom: .11rem;
+      }
+    }
+    &-list {
+      display: flex;
+      @include sp {
+        flex-wrap: wrap;
+        margin: 0 -0.035rem;
+      }
+      li {
+        & + li {
+          @include pc {
+            margin-left: 6px;
+          }
+        }
+        img {
+          @include sp {
+            width: 100%;
+          }
+        }     
+        @include sp {
+          width: 50%;
+          padding: .05rem .035rem;
+          a {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+.contact {
+  @include pc {
+    padding-top: 304px;
+    background: rgba(216, 237, 255, 0.51);
+  }
+  @include sp {
+    padding-top: .77rem;
+    padding-bottom: .5rem;
+  }
+  &__content {
+    overflow: hidden;
+    position: relative;
+    @include pc {
+      padding-bottom: 347px;
+      &::before {
+        content: '';
+        background-image: url("./../assets/img/home/img_decorator.png");
+        display: inline-block;
+        width: 341px;
+        height: 476px;
+        position: absolute;
+        top: -30px;
+      }
+    }
+    
+  }
+  &__icon {
+    @include pc {
+      
+    }
+  }
+  &__title {
+    font-weight: bold;
+    @include pc {
+      margin-bottom: 3px;
+      font-size: 25px;
+    }
+    @include sp {
+      margin-bottom: .02rem;
+      font-size: .25rem;
+    }
+  }
+  &__information {
+    @include pc {
+      font-size: 12px;
+      line-height: 1.16;
+      margin-bottom: 31px;
+    }
+    @include sp {
+      font-size: .12rem;
+      line-height: 1.16;
+      margin-bottom: .31rem;
+    }
+  }
+  &__form {
+    @include pc {
+      max-width: 251px;
+      margin-right: 13%;
+      float: right;
+    }
+    @include sp {
+      width: 2.51rem;
+      margin: auto;
+    }
+  }
+  .button-main {
+    @include sp {
+      margin-top: .29rem;
+    }
+    
+  }
+  &__control {
+    & + & {
+      
+      @include pc {
+        margin-top: 9px;
+      }
+      @include sp {
+        margin-top: .09rem;
+      }
+    }
+    &.contact__control--checkbox {
+      @include pc {
+        margin-top: 25px;
+      }
+      @include sp {
+        margin-top: .14rem;
+      }
+      
+    }
+  }
+}
+// community
+.community {
+  overflow: hidden;
+  @include pc {
+    padding: 53px 0 42px;
+  }
+  @include sp {
+    padding: .57rem 0 .24rem;
+  }
+  .main-title {
+    @include pc {
+      margin-bottom: 29px;
+    }
+    @include sp {
+      margin-bottom: .18rem;
+    }
+  }
+  .main-text {
+    @include pc {
+      margin-bottom: 22px;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    color: $color-blue;
+    @include pc {
+      font-size: 30px;
+    }
+    @include sp {
+      font-size: .2rem;
+    }
+  }
+  &__topic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include pc {
+      margin: 78px 0 25px;
+    }
+    @include sp {
+      padding-bottom: .5rem;
+      margin-bottom: .14rem;
+      position: relative;
+    }
+  }
+  &__tools {
+    @include pc {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  }
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    li {
+      & + li {
+        @include pc {
+          margin-left: 24px;
+        }
+        @include sp {
+          margin-left: .17rem;
+        }
+      }
+      
+    }
+    
+  }
+  &__search {
+    @include pc {
+      margin-left: 24px;
+      width: 233px;
+    }
+    @include sp {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+.slider-stories {
+  @include sp {
+    margin-bottom: .25rem;
+  }
+  &__item {
+    text-align: center;
+    &:hover {
+      .slider-stories__image {
+        
+        @include pc {
+          border: 3px solid $color-blue;
+        }
+        @include sp {
+          border: .03rem solid $color-blue;
+        }
+      }
+      .slider-stories__title {
+        font-weight: 600;
+      }
+    }
+  }
+  &__image {
+    display: inline-block;
+    @include pc {
+      border: 3px solid $color-white;
+      padding: 5px;
+      border-radius: 50%;
+    }
+    @include sp {
+      border: .03rem solid $color-white;
+      padding: .04rem;
+      border-radius: 50%;
+      width: .84rem;
+      height: .84rem;
+    }
+  }
+  &__title {
+    @include pc {
+      font-size: 18px;
+      line-height: 1.33;
+      margin-top: 2px;
+    }
+    @include sp {
+      font-size: .13rem;
+      line-height: 1.23;
+      margin-top: .04rem;
+    }
+  }
+  .slick-arrow {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    
+    border: none;
+    font-size: 0;
+    background: url("./../assets/img/common/icon_slider_arrow_on.svg");
+    background-repeat: no-repeat;
+    @include pc {
+      width: 25px;
+      height: 45px;
+      background-size: 25px auto;
+      top: 26%;
+    }
+    @include sp {
+      width: .18rem;
+      height: .33rem;
+      background-size: .18rem auto;
+      top: 29%;
+    }
+    &:hover {
+      opacity: .7;
+    }
+  }
+  .slick-disabled {
+    pointer-events: none;
+    background: url("./../assets/img/common/icon_slider_arrow_off.svg"); 
+    background-repeat: no-repeat;
+    
+    @include pc {
+      background-size: 25px auto;
+    }
+    @include sp {
+      background-size: .18rem auto;
+    }
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+    transform: rotate(181deg);
+  }
+  .slick-slider {
+    @include pc {
+      margin:0 -5px;
+    }
+    @include sp {
+      margin: 0 -0.05rem;
+    }
+  }
+  .slick-slide  {
+    
+    @include pc {
+      padding: 0 5px;
+    }
+    @include sp {
+      padding: 0 .05rem;
+    }
+  }
+  .slick-list {
+    
+    @include pc {
+      margin: 0 25px;
+    }
+    @include sp {
+      margin: 0 .12rem;
+      overflow: inherit;
+    }
+  }
+}
+.slider-post {
+  overflow: hidden;
+  @include sp {
+    padding: 0 .2rem;
+    position: relative;
+    &:not(.slider-more):after {
+      content: '';
+      background: url("./../assets/img/home/bg_more.png") repeat center;
+      height: 2.62rem;
+      width: 10.28rem;
+      display: inline-block;
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  &__content {
+    position: relative;
+  }
+  &__item {
+    background: $color-blue02;
+    position: relative;
+    @include pc-max {
+      padding: 20px 18px 27px;
+    }
+    @include pc {
+      border: 1px solid $color-blue;
+      border-radius: 10px;
+    }
+    @include tbl {
+      padding: 20px 10px 27px;
+    }
+    @include sp {
+      border: .01rem solid $color-blue;
+      border-radius: .1rem;
+      padding: .2rem .18rem .42rem;
+      &:nth-child(3) {
+        padding: .2rem .18rem .18rem;
+        .slider-post__image {
+          padding: .29rem .05rem .23rem;
+        }
+      }
+      &:nth-child(n+4) {
+        display: none;
+      }
+    }
+    & + .slider-post__item {
+      margin-top: 23px;
+    }
+    
+    
+  }
+  &__title {
+    @include pc {
+      font-size: 13px;
+    }
+    @include sp {
+      font-size: .13rem;
+      line-height: 1.23;
+    }
+  }
+  &__image {
+    @include sp {
+      text-align: center;
+      padding: .54rem .05rem .81rem;
+    }
+    img {
+      margin: auto;
+      @include pc-max-l {
+        padding: 55px 0 83px;
+      }
+      @include pc-min-max-l {
+        padding: 30px 0 40px;
+      }
+      @include tbl {
+        padding: 30px 0 40px;
+      }
+      @include sp {
+        width: 2.35rem;
+      }
+    }
+    
+  }
+  &__facebook,
+  &__share {
+    position: absolute;
+  }
+  &__facebook {
+    background: url("./../assets/img/common/icon_facebook_02.svg");
+    background-position: center;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    @include pc-max-l {
+      width: 33px;
+      height: 33px;
+      background-size: 33px auto;
+    }
+    @include pc-min-max-l {
+      width: 28px;
+      height: 28px;
+      background-size: 28px auto;
+    }
+    @include tbl {
+      width: 25px;
+      height: 25px;
+      background-size: 25px auto;
+    }
+    
+    @include sp {
+      width: .33rem;
+      height: .33rem;
+      background-size: .33rem auto;
+    }
+  }
+  &__share {
+    background: url("./../assets/img/common/icon_share_off.svg");
+    background-position: center;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    @include pc-max-l {
+      width: 33px;
+      height: 33px;
+      background-size: 40px auto;
+    }
+    @include pc-min-max-l {
+      width: 28px;
+      height: 28px;
+      background-size: 38px auto;
+    }
+    @include tbl {
+      width: 25px;
+      height: 25px;
+      background-size: 35px auto;
+    }
+    @include sp {
+      width: .33rem;
+      height: .33rem;
+      background-size: .4rem auto;
+    }
+  }
+  .slick-slider {
+    margin:0 -10px 62px;
+  }
+  .slick-slide  {
+    padding: 0 10px;
+    @include tbl {
+      padding: 0 5px;
+    }
+  }
+  &.slider-more {
+    .slider-post__item {
+      &:nth-child(3) {
+        padding: 20px 18px 42px;
+        .slider-post__image {
+          padding: 54px 5px 81px;
+        }
+      }
+      &:nth-child(n+4) {
+        display: block;
+      }
+    }
+    .slider-button-more {
+      display: none;
+
+    }
+  }
+}
+
+// promotional
+.promotional {
+  background: $color-blue01;
+  overflow: hidden;
+  @include pc {
+    padding: 74px 0 48px;
+  }
+  @include sp {
+    padding: .27rem 0 1.28rem;
+  }
+  .main-title {
+    margin-bottom: 14px;
+  }
+}
+.slider-promotional {
+  @include pc {
+    padding-top: 101px;
+  }
+  @include sp {
+    padding-top: 1.04rem;
+  }
+  &__item {
+    background: url("./../assets/img/home/bg_promotional_slides.png") repeat-x center;
+    color: $color-white;
+    position: relative;
+    background-size: cover;
+    transition: transform .2s;
+    @include pc {
+      border-radius: 10px;
+    }
+    @include sp {
+      border-radius: .1rem;
+    }
+    
+      
+  }
+  .slick-center,
+  .slick-slide:hover {
+    // &:hover {
+      > div {
+        position: relative;
+      }
+      @include pc {
+        
+        border-radius: 10px;
+      }
+      .slider-promotional__image {
+        display: none;
+      }
+      .slider-promotional__content {
+        @include pc-max-l {
+          min-height: 539px;
+        }
+        @include pc-min-max-l {
+          min-height: 325px;
+        }
+        @include tbl {
+          min-height: 340px;
+        }
+        @include sp {
+          min-height: 3.47rem;
+        }
+        
+        
+      }
+        
+      .slider-promotional__item {
+        position: absolute;
+        @include pc {
+          top: -34px;
+        }
+        @include sp {
+          top: -0.22rem;
+        }
+        
+      }
+      .slider-promotional__button,
+      .slider-promotional__text,
+      .slider-promotional__share,
+      .slider-promotional__title {
+        display: block;
+      }
+      .slider-promotional__title {
+        position: relative;
+        @include pc {
+          padding-bottom: 13px;
+          margin-bottom: 17px;
+        }
+        @include pc-max-l {
+          padding-right: 50px;
+        }
+        
+        @include sp {
+          padding-bottom: .13rem;
+          margin-bottom: .12rem;
+        }
+        &:before {
+          content: '';
+         
+          background: $color-white;
+          position: absolute;
+          bottom: 0;
+          display: inline-block;
+          @include pc {
+            width: 78px;
+            height: 2px;
+          }
+          @include sp {
+            width: .5rem;
+            height: .02rem;
+          }
+        }
+      }
+     
+    // }
+    
+  }
+  &__content {
+    position: relative;
+    @include pc-max-l {
+      margin: 30px 41px 30px;
+      height: 472px;
+    }
+    @include pc-min-max-l {
+      margin: 30px 15px 30px;
+      height: 260px;
+    }
+    @include tbl {
+      margin: 20px 10px 20px;
+      height: 278px;
+    }
+    @include sp {
+      margin: .18rem .28rem .2rem;
+      height: 3.03rem;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    @include pc-max-l {
+      font-size: 35px;
+      letter-spacing: .03em;
+    }
+    @include pc-min-max-l {
+      font-size: 21px;
+    }
+    @include tbl {
+      font-size: 18px;
+    }
+    @include sp {
+      font-size: .21rem;
+      letter-spacing: .03em;
+      padding-right: .2rem;
+    }
+  }
+  
+  &__text {
+    display: none;
+    @include pc {
+      font-size: 15px;
+      letter-spacing: .03em;
+    }
+    @include sp {
+      font-size: .15rem;
+      letter-spacing: .03em;
+    }
+  }
+  &__button {
+    font-weight: bold;
+    color: $color-white;
+    text-align: center;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    @include pc-max-l {
+      font-size: 21px;
+      letter-spacing: .05em;
+      border: 3px solid $color-white;
+      padding: 23px 5px;
+      width: 100%;
+      bottom: 27px;
+    }
+    @include pc-min-max-l {
+      font-size: 14px;
+      letter-spacing: .05em;
+      border: 3px solid $color-white;
+      padding: 16px 5px;
+      width: 100%;
+      bottom: 6px;
+    }
+    @include tbl {
+      font-size: 14px;
+      letter-spacing: .05em;
+      border: 2px solid $color-white;
+      padding: 15px 5px;
+      width: 100%;
+      bottom: 8px;
+    }
+    @include sp {
+      font-size: .12rem;
+      letter-spacing: .05em;
+      border: .03rem solid $color-white;
+      padding: .15rem .05rem;
+      width: 100%;
+      bottom: .15rem;
+    }
+  }
+  &__share {
+    right: 0;
+    @include pc-max-l {
+      width: 40px;
+      height: 40px;
+      background-size: 52px auto;
+    }
+    @include pc-min-max-l {
+      width: 30px;
+      height: 30px;
+      background-size: 40px auto;
+    }
+    @include pc {
+      position: absolute;
+      background-image: url("./../assets/img/common/icon_share_off.svg");
+      background-position: center;
+      display: inline-block;
+      z-index: 2;
+      display: none;
+    }
+    
+    @include tbl {
+      width: 25px;
+      height: 25px;
+      background-size: 35px auto;
+      right: -7px;
+    }
+    
+  }
+  .slick-slide  {
+    
+    @include pc-max {
+      padding: 0 29px;
+    }
+    @include pc-min-max-l {
+      padding: 0 12px;
+    }
+    @include tbl {
+      padding: 0 10px;
+    }
+    @include sp {
+      padding: 0 .12rem;
+    }
+  }
+  .slick-list {
+    overflow: inherit;
+  }
+
+  .slick-dots {
+    @include pc {
+      display: flex!important;
+      justify-content: center;
+      padding-top: 86px;
+      li {
+        & + li {
+          margin-left: 8px;
+        }
+        &:nth-child(2n) {
+          .progress .progress-left {
+            left: 1px;
+          }
+        }
+      }
+    }
+  }
+  
+}
+@include pc {
+  .progress{
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    background: none;
+    margin: 0 auto;
+    box-shadow: none;
+    position: relative;
+  }
+  .progress-circle:after{
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid $color-white;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  
+  
+  .progress > span{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .progress .progress-left{
+    left: 0;
+  }
+  .progress .progress-bar{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 3px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+  }
+  .progress .progress-left .progress-bar{
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+  }
+  .progress .progress-right{
+    right: 0;
+  }
+  .progress .progress-right .progress-bar{
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+    animation: loading-1 1.8s linear forwards;
+  }
+  .progress .progress-value{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 17px;
+    color: $color-blue;
+    text-align: center;
+    position: absolute;
+  }
+  .progress .progress-bar{
+    border-color: #049dff;
+  }
+  .progress .progress-left .progress-bar{
+    animation: loading-2 1.2s linear forwards 1.8s;
+  }
+  
+  .progress > span{
+    display: none;
+  }
+  .slick-active .progress > span {
+    display: block;
+  }
+  .slick-active .progress:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid $color-white;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  @keyframes loading-1{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+  }
+  @keyframes loading-2{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+  }
+  
+  @media only screen and (max-width: 990px){
+    .progress{ margin-bottom: 20px; }
+  }
+}
+// slider-exclusive
+.exclusive {
+  @include pc-max {
+    padding: 188px 0 80px;
+  }
+  @include tbl {
+    padding: 100px 0 80px;
+  }
+  @include sp {
+    padding: .52rem 0 0;
+  }
+  .main-title {
+    @include pc {
+      margin-bottom: 12px;
+    }
+    @include sp {
+      margin-bottom: .1rem;
+    }
+    
+  }
+}
+.slider-exclusive {
+  overflow: hidden;
+  @include sp {
+    padding-top: .4rem;
+  }
+  &__content {
+    position: relative;
+  }
+  &__item {
+    background: $color-blue02;
+    @include pc-max {
+      padding: 17px 24px 17px
+    }
+    @include tbl {
+      padding: 15px 10px 40px;
+    }
+    @include sp {
+      height: 1.71rem;
+      padding: .12rem;
+    }
+  }
+  &__image {
+    text-align: center;
+  }
+  &__download {
+    background: url("./../assets/img/common/icon_download.svg");
+    background-position: center;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include pc-max-l {
+      width: 49px;
+      height: 49px;
+      background-size: 65px auto;
+    }
+    @include pc-min-max-l {
+      width: 40px;
+      height: 40px;
+      background-size: 55px auto;
+    }
+    @include tbl {
+      width: 35px;
+      height: 35px;
+      background-size: 50px auto;
+    }
+    @include sp {
+      width: .3rem;
+      height: .3rem;
+      background-size: .47rem auto;
+    }
+  }
+  .slick-slider {
+    
+    @include pc-max {
+      margin: 97px -25px 100px;
+    }
+    @include tbl {
+      margin: 60px -25px 50px;
+    }
+  }
+  .slick-slide  {
+    
+    @include pc-max {
+      padding: 0 25px;
+    }
+    @include tbl {
+      padding: 0 10px;
+    }
+    @include sp {
+      padding: 0 .04rem;
+    }
+  }
+  .slick-slide img {
+    margin: auto;
+    
+    @include pc-max-l {
+      padding: 84px 0 131px;
+    }
+    @include pc-min-max-l {
+      padding: 30px 0 40px;
+    }
+    @include tbl {
+      padding: 40px 0 60px;
+    }
+    
+    @include sp {
+      width: 1.45rem;
+      padding: .34rem 0 .63rem;
+    }
+  }
+  .slick-list {
+    overflow: inherit;
+  }
+  .slick-center {
+    @include sp {
+      > div {
+        position: relative;
+      }
+      .slider-exclusive__item {
+        position: absolute;
+        top: -0.07rem;
+        height: 1.82rem;
+      }
+    }
+  }
+}
+.fp-section {
+  text-align: left!important;
+}
