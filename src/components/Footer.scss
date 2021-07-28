@@ -1,186 +1,168 @@
-@import './../assets/scss/common';
+@import "./../assets/scss/common";
 .footer {
-    background: $color-blue;
+  background: $color-blue;
+  color: $color-white;
+  @include pc {
+    padding: 8.8% 0 20px;
+  }
+
+  @include sp {
+    padding: 0.78rem 0 0.7rem;
+    position: relative;
+  }
+  a {
     color: $color-white;
-    @include pc-max {
-        padding: 170px 0 20px;
+  }
+
+  &__logo-image {
+    display: block;
+    @include pc {
+      margin-bottom: 57px;
     }
     @include tbl {
-        padding: 100px 0 20px;
+      width: 70%;
     }
     @include sp {
-        padding: .78rem 0 .7rem;
-        position: relative;
+      text-align: center;
+      margin-top: 0.26rem;
+      margin-bottom: 0.32rem;
     }
-    a {
-        color: $color-white;
+    img {
+      @include sp {
+        width: 2.37rem;
+      }
+    }
+  }
+  &__content {
+    @include pc {
+      padding-bottom: 15.7%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    @include pc {
+      font-size: 25px;
+    }
+    @include sp {
+      font-size: 0.12rem;
+      color: $color-blue;
+      text-align: center;
+      margin-bottom: 0.07rem;
+    }
+  }
+  &__follow {
+    @include sp {
+      position: absolute;
+      height: 0.78rem;
+      background: $color-blue03;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 0.14rem;
+    }
+  }
+  &__social {
+    display: flex;
+    @include sp {
+      justify-content: center;
+    }
+    @include pc {
+      margin-top: 20px;
+      margin-bottom: 27px;
     }
 
-    &__logo-image {
-        
-        display: block;
+    li {
+      & + li {
         @include pc {
-            margin-bottom: 57px;
-        }
-        @include tbl {
-            width: 70%;
+          margin-left: 18px;
         }
         @include sp {
-            text-align: center;
-            margin-top: .26rem;
-            margin-bottom: .32rem;
+          margin-left: 0.11rem;
         }
-        img {
-            @include sp {
-                width: 237px;
-            }
-        }
+      }
     }
-    &__content {
-        @include pc-max {
-            padding-bottom: 166px;
-        }
-        @include pc {
-            display: flex;
-            justify-content: space-between;
-            
-        }
-        @include tbl {
-            padding-bottom: 100px;
-        }
+    img {
+      @include sp {
+        width: 0.3rem;
+      }
     }
-    &__title {
+  }
+  &__links {
+    @include pc {
+      margin-top: -11px;
+      margin-bottom: 34px;
+    }
+    @include sp {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-list {
+      @include pc {
+        font-size: 20px;
+        line-height: 1.55;
+      }
+      @include sp {
+        font-size: 0.12rem;
+        line-height: 2.5;
         font-weight: bold;
+      }
+      & + ul {
         @include pc {
-            font-size: 25px;
+          margin-top: 34px;
         }
-        @include sp {
-            font-size: .12rem;
-            color: $color-blue;
-            text-align: center;
-            margin-bottom: .07rem;
-        }
+      }
     }
-    &__follow {
-        @include sp {
-            position: absolute;
-            height: .78rem;
-            background: $color-blue03;
-            width: 100%;
-            top: 0;
-            left: 0;
-            padding: .14rem;
-        }
+    .footer__title {
+      @include pc {
+        margin-bottom: 33px;
+      }
     }
-    &__social {
-        display: flex;
-        @include sp {
-            justify-content: center;
-        }
+  }
+  &__copyrights {
+    display: block;
+    text-align: center;
+    font-weight: 300;
+    @include pc-max {
+      font-size: 15px;
+    }
+    @include pc {
+      line-height: 1.7;
+      border-top: 3px solid $color-white;
+      padding: 21px 0 29px;
+    }
+    @include tbl {
+      font-size: 11px;
+    }
+    @include sp {
+      font-size: 0.1rem;
+      margin-top: 0.41rem;
+    }
+  }
+  &__language {
+    .dropdown__item {
+      @include pc {
+        padding-left: 45px;
+      }
+      &::before {
+        content: "";
+        background: url("./../assets/img/common/icon_web.svg") no-repeat;
+        background-size: 25px auto;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
         @include pc {
-            margin-top: 20px;
-            margin-bottom: 27px;
+          left: 10px;
         }
-        
-        li {
-            & + li {
-                @include pc {
-                    margin-left: 18px;
-                }
-                @include sp {
-                    margin-left: .11rem;
-                }
-                
-            }
-        }
-        img {
-            
-            
-            @include sp {
-                width: .3rem;
-            }
-        }
-        
+      }
     }
-    &__links {
-        @include pc {
-            margin-top: -11px;
-            margin-bottom: 34px;
-        }
-        @include sp {
-            display: flex;
-            justify-content: space-between;
-        }
-        &-list {
-          @include pc {
-            font-size: 20px;
-            line-height: 1.55;
-          }
-          @include sp {
-            font-size: .12rem;
-            line-height: 2.5;
-            font-weight: bold;
-          }
-          & + ul {
-              @include pc {
-                margin-top: 34px;
-              }
-              
-          }
-        }
-        .footer__title {
-            @include pc {
-                margin-bottom: 33px;
-            }
-            
-        }
-        
+    .dropdown__items li {
+      padding-left: 40px;
     }
-    &__copyrights {
-        display: block;
-        text-align: center;
-        font-weight: 300;
-        @include pc-max {
-            font-size: 15px;
-        }
-        @include pc {
-          line-height: 1.7;
-          border-top: 3px solid  $color-white;
-          padding: 21px 0 29px;
-        }
-        @include tbl {
-            font-size: 11px;
-        }
-        @include sp {
-            font-size: .1rem;
-            margin-top: .41rem;
-        }
-        
-    }
-    &__language {
-        .dropdown__item {
-            @include pc {
-                padding-left: 45px;
-            }
-            &::before {
-                content: '';
-                background: url("./../assets/img/common/icon_web.svg") no-repeat;
-                background-size: 25px auto;
-                width: 25px;
-                height: 25px;
-                display: inline-block;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                @include pc {
-                    left: 10px;
-                }
-            }
-        }
-        .dropdown__items li {
-            padding-left: 40px;
-        }
-    }
-    
+  }
 }

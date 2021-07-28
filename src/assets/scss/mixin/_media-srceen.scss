@@ -20,7 +20,7 @@ $sp-s: 480;
     @content;
   }
 }
-@mixin pc-min-max-l { //1024 ~ 1139
+@mixin pc-min-max-l { //1024 ~ 1460
   @media screen and (min-width: ($pc-max+px)) and (max-width: ($pc-max-l - 1)+px) {
     @content;
   }

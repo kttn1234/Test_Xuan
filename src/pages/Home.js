@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "fullpage.js/vendors/scrolloverflow"; 
 import ReactFullpage from "@fullpage/react-fullpage";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import Footer from './../components/Footer';
+import {WOW} from 'wowjs';
 import "./Home.scss";
 import img_rating from "./../assets/img/home/img_rating.png";
 import img_banner from "./../assets/img/home/img_banner.png";
@@ -10,26 +14,29 @@ import img_steam_pc from "./../assets/img/home/img_steam_pc.png";
 import img_eshop_sp from "./../assets/img/home/img_eshop_sp.png";
 import img_microsoft_sp from "./../assets/img/home/img_microsoft_sp.png";
 import img_steam_sp from "./../assets/img/home/img_steam_sp.png";
-
 import img_demo from "./../assets/img/home/img_demo.png";
 import icon_facebook_01 from "./../assets/img/common/icon_facebook_01.svg";
-import icon_facebook_02 from "./../assets/img/common/icon_facebook_02.svg";
 import icon_twitter_01 from "./../assets/img/common/icon_twitter_01.svg";
 import icon_instagram_01 from "./../assets/img/common/icon_instagram_01.svg";
-import icon_share_off from "./../assets/img/common/icon_share_off.svg";
 import img_stories_01 from "./../assets/img/home/img_stories_01.png";
 import img_stories_02 from "./../assets/img/home/img_stories_02.png";
 import img_stories_03 from "./../assets/img/home/img_stories_03.png";
 import img_stories_04 from "./../assets/img/home/img_stories_04.png";
 import img_stories_05 from "./../assets/img/home/img_stories_05.png";
 import img_stories_06 from "./../assets/img/home/img_stories_06.png";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import Footer from './../components/Footer';
 
 class Home extends React.Component{
   constructor(props) {
     super(props);
+  }
+ 
+  componentDidMount() {
+    const wow = new WOW({
+      offset: 100,
+      mobile: false,
+      live: true
+    })
+    wow.init();
   }
   state = {
     activeSlide: 0,
@@ -42,12 +49,10 @@ class Home extends React.Component{
   };
   
   onLeave(origin, destination, direction) {
-    console.log("Leaving section " + origin.index);
   }
   afterLoad(origin, destination, direction) {
-    console.log("After load: " + destination.index);
   }
-
+  
   render() {
     const settingsStories = {
       dots: false,
@@ -188,18 +193,16 @@ class Home extends React.Component{
         let slidesPromotionalCountString = slidesPromotionalCount.toString().length;
         return (
           <div>
-            <div class="progress">
-              <span class="progress-left">
-                  <span class="progress-bar"></span>
+            <div className="progress">
+              <span className="progress-left">
+                  <span className="progress-bar"></span>
               </span>
-              <span class="progress-right">
-                  <span class="progress-bar"></span>
+              <span className="progress-right">
+                  <span className="progress-bar"></span>
               </span>
               <div className="progress-value">{slidesPromotionalCountString ===1?'0':''}{slidesPromotionalCount}</div>
             </div>
           </div>
-          
-            
         );
       },
       className: "center",
@@ -226,7 +229,6 @@ class Home extends React.Component{
       ]
     };
     
-  
     const slidesPromotional = [
       {
         id: 1,
@@ -266,7 +268,7 @@ class Home extends React.Component{
       afterChange: current => this.setState({ activeSlideExclusive02: current }),
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 1024,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -324,7 +326,9 @@ class Home extends React.Component{
     ];
     return (
       <ReactFullpage
-        scrollOverflow={true}
+        // scrollOverflow={true}
+        scrollBar={true} 
+        responsiveWidth={768} 
         onLeave={this.onLeave.bind(this)}
         afterLoad={this.afterLoad.bind(this)}
         render={({ state, fullpageApi }) => {
@@ -334,15 +338,15 @@ class Home extends React.Component{
                 <div className="banner">
                   <div className="banner__content">
                     <div className="inner">
-                      <div className="banner__image">
+                      <div className="banner__image  wow fadeInUp"  data-wow-duration=".8s">
                         <img
                           src={img_banner}
                           alt="start"
                           className="banner__rating-icon"
                         />
                       </div>
-                      <h2 className="main-title">GAMELOFT<br className="hidden-pc"/> GAME</h2>
-                      <div className="banner__rating">
+                      <h2 className="main-title wow fadeInUp" data-wow-duration="1s">GAMELOFT<br className="hidden-pc"/> GAME</h2>
+                      <div className="banner__rating wow fadeInUp" data-wow-duration="1.2s">
                         <span className="banner__rating-title">Rating / Action</span>
                         <img
                           src={img_rating}
@@ -350,13 +354,13 @@ class Home extends React.Component{
                           className="banner__rating-icon"
                         />
                       </div>
-                      <p className="banner__description">
+                      <p className="banner__description wow fadeInUp" data-wow-duration="1.4s">
                         Lorem ipsum dolor sit amet, consectetur<br className="hidden-pc"/> adipiscing elit, sed do
                         eiusmod tempor<br className="hidden-pc"/> incididunt ut labore et dolore magna aliqua.<span className="hidden-sp"> Ut
                         enim ad minim veniam, quis nostrud</span>
                       </p>
                     </div>
-                    <div className="banner__store">
+                    <div className="banner__store wow fadeInUp" data-wow-duration="1.6s">
                       <div className="inner">
                         <p className="banner__store-title">Download latest version</p>
                         <ul className="banner__store-list">
@@ -409,14 +413,15 @@ class Home extends React.Component{
                 <section className="contact">
                   <div className="inner">
                     <div className="contact__content">
+                      <i className="contact__icon wow fadeInUp" data-wow-duration="1.2s"></i>
                       <form className="contact__form">
-                        <h2 className="contact__title">Stay in the Know!</h2>
-                        <p className="contact__information">
+                        <h2 className="contact__title wow fadeInUp" data-wow-duration="1s">Stay in the Know!</h2>
+                        <p className="contact__information wow fadeInUp" data-wow-duration="1.2s">
                           Don't get left behind!
                           <br />
                           Subscribe to our newsletters today!
                         </p>
-                        <div className="contact__control">
+                        <div className="contact__control wow fadeInUp" data-wow-duration="1.4s">
                           <input
                             type="text"
                             placeholder="Name"
@@ -425,7 +430,7 @@ class Home extends React.Component{
                             className="input-style"
                           />
                         </div>
-                        <div className="contact__control">
+                        <div className="contact__control wow fadeInUp" data-wow-duration="1.6s">
                           <input
                             type="email"
                             placeholder="Email"
@@ -434,7 +439,7 @@ class Home extends React.Component{
                             className="input-style"
                           />
                         </div>
-                        <div className="contact__control">
+                        <div className="contact__control wow fadeInUp" data-wow-duration="1.8s">
                           <div className="select-style">
                             <select name="country" id="country">
                               <option value="Country">Country</option>
@@ -445,7 +450,7 @@ class Home extends React.Component{
                             </select>
                           </div>
                         </div>
-                        <div className="contact__control">
+                        <div className="contact__control wow fadeInUp" data-wow-duration="2s">
                           <div className="select-style">
                             <select name="Platform" id="Platform">
                               <option value="Platform">Platform</option>
@@ -454,21 +459,21 @@ class Home extends React.Component{
                           </div>
                         </div>
                         <div className="contact__control contact__control--checkbox">
-                          <label className="checkbox-style">
+                          <label className="checkbox-style wow fadeInUp" data-wow-duration="2.1s">
                             By signing up, I confirm that I am 13 years old or older. I
                             agree to the Gameloft Terms and Conditions and I have read
                             the Privacy Policy.
                             <input type="checkbox" />
                             <span className="checkmark"></span>
                           </label>
-                          <label className="checkbox-style">
+                          <label className="checkbox-style wow fadeInUp" data-wow-duration="2.2s">
                             I agree to receive promotional offers relating to all
                             Gameloft games and services.
                             <input type="checkbox" />
                             <span className="checkmark"></span>
                           </label>
                         </div>
-                        <div className="contact__control">
+                        <div className="contact__control wow fadeInUp" data-wow-duration="2.4s">
                           <button className="button-main trans">Button</button>
                         </div>
                       </form>
@@ -479,9 +484,9 @@ class Home extends React.Component{
               <div className="section">
                 <section className="community">
                   <div className="inner">
-                    <h2 className="main-title"><span className="hidden-sp">{"Game Community Hub".toUpperCase()}</span><span className="hidden-pc">Game Community Hub</span></h2>
-                    <p className="main-text hidden-sp">Live Game Updates</p>
-                    <div className="slider-stories">
+                    <h2 className="main-title wow fadeInUp" data-wow-duration="1s"><span className="hidden-sp">{"Game Community Hub".toUpperCase()}</span><span className="hidden-pc">Game Community Hub</span></h2>
+                    <p className="main-text hidden-sp wow fadeInUp" data-wow-duration="1.2s">Live Game Updates</p>
+                    <div className="slider-stories wow fadeInUp" data-wow-duration="1.4s">
                       <Slider {...settingsStories}>
                         {slidesStories.map((slide) =>
                           <a className="slider-stories__item" key={slide.id} href="#" target="_blank">
@@ -495,7 +500,7 @@ class Home extends React.Component{
                   <div className="community__post">
                     <div className="inner">
                       <div className="community__topic">
-                        <h3 className="community__title">All Posts</h3>
+                        <h3 className="community__title wow fadeInUp" data-wow-duration="1.6s">All Posts</h3>
                         <div className="community__tools">
                           <ul className="community__social">
                             <li><a className="trans community__icon-twitter" href="./"><img src={icon_twitter_01} alt="facebook"/></a></li>
@@ -514,7 +519,7 @@ class Home extends React.Component{
                         </div>
                       </div>
                     </div>
-                    <div className={`slider-post ${this.state.postShow===1? 'slider-more':''}`} >
+                    <div className={`wow fadeInUp slider-post ${this.state.postShow===1? 'slider-more':''}`} data-wow-duration="1.8s" >
                       <Slider ref={slidesPostRef} {...settingsPost}>
                         {slidesPost.map((slide) =>
                           <div className="slider-post__item" key={slide.id}>
@@ -527,7 +532,7 @@ class Home extends React.Component{
                           </div>
                         )}
                       </Slider>
-                      <div className="slider-button hidden-sp">
+                      <div className="slider-button hidden-sp wow fadeInUp" data-wow-duration="2s">
                         <button className="slider-button__arrow slider-button__arrow--prev" disabled={this.state.activeSlide === 0}  onClick={() => prevPost()}>
                           Previous
                         </button>
@@ -536,7 +541,7 @@ class Home extends React.Component{
                           Next
                         </button>
                       </div>
-                      <div className="slider-button-more hidden-pc">
+                      <div className="slider-button-more hidden-pc wow fadeInUp" data-wow-duration="2s">
                           <a className="button-main trans" onClick={() => showPostMore()}>More</a>
                       </div>
                     </div>
@@ -546,11 +551,11 @@ class Home extends React.Component{
               <div className="section">
                 <section className="promotional">
                   <div className="inner">
-                    <h2 className="main-title"><span className="hidden-sp">{"Special Events & Promotional".toUpperCase()}</span><span className="hidden-pc">Special Events & <br/>Promotional</span></h2>
-                    <p className="main-text hidden-sp">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
-                    <p className="main-text hidden-pc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                    <h2 className="main-title wow fadeInUp" data-wow-duration="1s"><span className="hidden-sp">{"Special Events & Promotional".toUpperCase()}</span><span className="hidden-pc">Special Events & <br/>Promotional</span></h2>
+                    <p className="main-text hidden-sp wow fadeInUp" data-wow-duration="1.2s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+                    <p className="main-text hidden-pc wow fadeInUp" data-wow-duration="1.4s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                   </div>
-                  <div className="slider-promotional">
+                  <div className="slider-promotional wow fadeInUp" data-wow-duration="1.6s">
                     <Slider {...settingsPromotional}>
                       {slidesPromotional.map((slide) =>
                         <div className="slider-promotional__item" key={slide.id}>
@@ -570,11 +575,11 @@ class Home extends React.Component{
               <div className="section">
                 <section className="exclusive">
                   <div className="inner">
-                    <h2 className="main-title"><span className="hidden-sp">{"Exclusive Game Content".toUpperCase()}</span><span className="hidden-pc">Exclusive Game Content</span></h2>
-                    <p className="main-text hidden-sp">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
-                    <p className="main-text hidden-pc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                    <h2 className="main-title wow fadeInUp" data-wow-duration="1s"><span className="hidden-sp">{"Exclusive Game Content".toUpperCase()}</span><span className="hidden-pc">Exclusive Game Content</span></h2>
+                    <p className="main-text hidden-sp wow fadeInUp" data-wow-duration="1.2s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+                    <p className="main-text hidden-pc wow fadeInUp" data-wow-duration="1.2s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                   </div>
-                  <div className="slider-exclusive">
+                  <div className="slider-exclusive wow fadeInUp" data-wow-duration="1.4s">
                     <Slider ref={slidesExclusiveRef} {...settingsExclusive}>
                       {slidesExclusive.map((slide) =>
                         <div className="slider-exclusive__item" key={slide.id}>
@@ -585,7 +590,7 @@ class Home extends React.Component{
                         </div>
                       )}
                     </Slider>
-                    <div className="slider-button">
+                    <div className="slider-button wow fadeInUp" data-wow-duration="1.6s">
                       <button className="slider-button__arrow slider-button__arrow--prev" disabled={this.state.activeSlideExclusive01 === 0}  onClick={() => prevExclusive()}>
                         Previous
                       </button>
@@ -600,14 +605,12 @@ class Home extends React.Component{
               <div className="section">
                 <Footer/>
               </div>
-              
-              
             </div>
-      );
-    }}
-  />
-);
-}
+          );
+        }}
+      />
+    );
+  }
 }
 
 export default Home;
