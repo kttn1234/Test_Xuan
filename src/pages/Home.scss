@@ -153,6 +153,7 @@
 .select-style select {
   width: 100%;
   color: $color-blue;
+  background-color: $color-white;
   @include pc {
     font-size: 12px;
     border: 1px solid $color-blue;
@@ -881,7 +882,7 @@
     }
   }
   &__share {
-    background: url("./../assets/img/common/icon_share_off.svg");
+    background: url("./../assets/img/common/icon_share.svg");
     background-position: center;
     display: inline-block;
     right: 0;
@@ -1148,7 +1149,7 @@
     }
     @include pc {
       position: absolute;
-      background-image: url("./../assets/img/common/icon_share_off.svg");
+      background-image: url("./../assets/img/common/icon_share.svg");
       background-position: center;
       display: inline-block;
       z-index: 2;
@@ -1378,8 +1379,8 @@
       background-size: 50px auto;
     }
     @include sp {
-      width: .3rem;
-      height: .3rem;
+      width: .39rem;
+      height: .39rem;
       background-size: .47rem auto;
     }
   }

@@ -140,7 +140,7 @@
   li {
     & + li {
       @include pc {
-        margin-top: -5px;
+        margin-top: -1px;
       }
       @include sp {
         margin-top: -0.03rem;
@@ -152,59 +152,44 @@
     background-repeat: no-repeat;
     display: inline-block;
     @include pc {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
+      background-size: 34px auto;
     }
     @include sp {
-      width: 0.3rem;
-      height: 0.3rem;
+      width: 0.31rem;
+      height: 0.31rem;
+      background-size: 0.25rem auto;
     }
     &:hover {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
       @include pc {
         border: 4px solid $color-blue01;
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
+      }
+      @include sp {
+        border: 3px solid $color-blue01;
       }
     }
   }
 }
 .header__icon-share {
   background-image: url("./../assets/img/common/icon_share_off.svg");
-
-  @include pc {
-    background-size: 50px auto;
-  }
-  @include sp {
-    background-size: 0.4rem auto;
-  }
   &:hover {
     background-image: url("./../assets/img/common/icon_share_on.svg");
   }
 }
 .header__icon-mail {
   background-image: url("./../assets/img/common/icon_mail_off.svg");
-
-  @include pc {
-    background-size: 34px auto;
-  }
-  @include sp {
-    background-size: 0.25rem auto;
-  }
   &:hover {
     background-image: url("./../assets/img/common/icon_mail_on.svg");
   }
 }
 .header__icon-customer {
   background-image: url("./../assets/img/common/icon_customer_off.svg");
-  @include pc {
-    background-size: 34px auto;
-  }
-  @include sp {
-    background-size: 0.25rem auto;
-  }
   &:hover {
     background-image: url("./../assets/img/common/icon_customer_on.svg");
   }
